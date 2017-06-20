@@ -3,6 +3,7 @@ package com.seaninboulder;
 
 import com.google.common.collect.Sets;
 import com.google.inject.*;
+import com.seaninboulder.module.BannerModule;
 import com.twilio.Twilio;
 import com.twilio.type.PhoneNumber;
 
@@ -22,7 +23,10 @@ public class Main {
 
         input.close();
 
-        Injector injector = Guice.createInjector(new PuppyModule(properties));
+        Injector injector = Guice.createInjector(
+            new PuppyModule(properties),
+            new BannerModule()
+        );
 
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         scheduler.scheduleAtFixedRate(
