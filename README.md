@@ -20,3 +20,8 @@ twilio.from.number=11231231234
 # Interval in minutes to check for new pups
 puppy.check.interval=5
 ```
+To package the app in a fat jar for deploying on a server you can run
+```mvn package```
+
+Run it with
+```java -jar puppyfinder-1.0-SNAPSHOT-jar-with-dependencies.jar```
